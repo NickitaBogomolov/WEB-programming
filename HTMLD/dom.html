@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивная HTML-страница</title>
+    <style>
+        #dynamicButton {
+            transition: all 0.3s;
+        }
+
+        #coloredParagraph {
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        #resultSpan {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .input {
+            width: 350px;
+        }
+
+        .section {
+            background-color: rgb(155, 155, 221);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Интерактивная HTML-страница</h1>
+    <div class="section">
+        <h2>1. Смена картинки по URL</h2>
+        <input type="text" id="imageUrl" placeholder="Введите URL картинки">
+        <button id="changeImageBtn">Сменить картинку</button>
+        <div style="margin-top: 15px;">
+            <img id="displayedImage" src="https://via.placeholder.com/400x200?text=Картинка+по+умолчанию" alt="Картинка"
+                style="max-width: 100%; height: auto;">
+        </div>
+    </div>
+    <div class="section">
+        <h2>2. Кнопка с изменяющимся текстом</h2>
+        <button id="dynamicButton">Наведи на меня</button>
+    </div>
+    <div class="section">
+        <h2>3. Изменение цветов текста и фона</h2>
+        <input type="text" id="textColor" placeholder="Цвет текста (например, red или #ff0000)">
+        <input type="text" id="bgColor" placeholder="Цвет фона (например, blue или #0000ff)">
+        <button id="changeColorsBtn">Изменить цвета</button>
+        <p id="coloredParagraph">Этот абзац изменит свой цвет текста и фона при нажатии кнопки.</p>
+    </div>
+    <div class="section">
+        <h2>4. Изменение рамки таблицы</h2>
+        <input type="text" id="borderWidth" placeholder="Толщина рамки (например, 2px)">
+        <input type="text" id="borderColor" placeholder="Цвет рамки (например, red)">
+        <button id="changeTableBorderBtn">Изменить рамку</button>
+        <table id="styledTable">
+            <thead>
+                <tr>
+                    <th>Заголовок 1</th>
+                    <th>Заголовок 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ячейка 1</td>
+                    <td>Ячейка 2</td>
+                </tr>
+                <tr>
+                    <td>Ячейка 3</td>
+                    <td>Ячейка 4</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="section">
+        <h2>5. Сумма чисел</h2>
+        <input type="number" id="number1" placeholder="Первое число">
+        <input type="number" id="number2" placeholder="Второе число">
+        <button id="calculateSumBtn">Вычислить сумму</button>
+        <p>Результат: <span id="resultSpan">0</span></p>
+    </div>
+
+    <script>
+        // 1. Смена картинки
+        document.getElementById('changeImageBtn').addEventListener('click', function () {
+            const imageUrl = document.getElementById('imageUrl').value;
+            if (imageUrl) {
+                document.getElementById('displayedImage').src = imageUrl;
+            } else {
+                alert('Пожалуйста, введите URL картинки');
+            }
+        });
+
+        // 2. Кнопка с изменяющимся текстом
+        const dynamicButton = document.getElementById('dynamicButton');
+        const originalText = dynamicButton.textContent;
+
+        dynamicButton.addEventListener('mouseover', function () {
+            this.textContent = 'Мышь на кнопке!';
+        });
+
+        dynamicButton.addEventListener('mouseout', function () {
+            this.textContent = originalText;
+        });
+
+        // 3. Изменение цветов текста и фона
+        document.getElementById('changeColorsBtn').addEventListener('click', function () {
+            const textColor = document.getElementById('textColor').value;
+            const bgColor = document.getElementById('bgColor').value;
+            const paragraph = document.getElementById('coloredParagraph');
+
+            if (textColor) paragraph.style.color = textColor;
+            if (bgColor) paragraph.style.backgroundColor = bgColor;
+        });
+
+        // 4. Изменение рамки таблицы
+        document.getElementById('changeTableBorderBtn').addEventListener('click', function () {
+            const borderWidth = document.getElementById('borderWidth').value;
+            const borderColor = document.getElementById('borderColor').value;
+            const table = document.getElementById('styledTable');
+
+            if (borderWidth) table.style.borderWidth = borderWidth;
+            if (borderColor) table.style.borderColor = borderColor;
+
+            // Применяем стиль ко всем ячейкам таблицы
+            const cells = table.querySelectorAll('th, td');
+            cells.forEach(cell => {
+                if (borderWidth) cell.style.borderWidth = borderWidth;
+                if (borderColor) cell.style.borderColor = borderColor;
+            });
+        });
+
+        // 5. Сумма чисел
+        document.getElementById('calculateSumBtn').addEventListener('click', function () {
+            const num1 = parseFloat(document.getElementById('number1').value) || 0;
+            const num2 = parseFloat(document.getElementById('number2').value) || 0;
+            const sum = num1 + num2;
+
+            document.getElementById('resultSpan').textContent = sum;
+        });
+    </script>
+</body>
+
+</html>
