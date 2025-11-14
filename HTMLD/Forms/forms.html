@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Задача 1: Подтверждение действий -->
+    <div class="section">
+        <h2>1. Подтверждение действий</h2>
+        <form id="form1">
+            <input type="text" id="textField1" placeholder="Текстовое поле">
+            <br>
+            <input type="checkbox" id="checkbox1"> Чекбокс
+            <br><br>
+            <button type="button" id="confirmBtn">Выполнить действие</button>
+        </form>
+    </div>
+
+    <!-- Задача 2: Блокировка/разблокировка поля -->
+    <div class="section">
+        <h2>2. Блокировка/разблокировка поля</h2>
+        <input type="text" id="lockableField" placeholder="Это поле можно блокировать">
+        <br><br>
+        <button id="lockBtn">Заблокировать поле</button>
+        <button id="unlockBtn">Разблокировать поле</button>
+    </div>
+
+    <!-- Задача 3: Фокус при наведении -->
+    <div class="section">
+        <h2>3. Фокус при наведении (показывает ID поля)</h2>
+        <input type="text" id="field1" placeholder="Поле 1">
+        <input type="text" id="field2" placeholder="Поле 2">
+        <input type="text" id="field3" placeholder="Поле 3">
+        <input type="text" id="field4" placeholder="Поле 4">
+    </div>
+
+    <!-- Задача 4: Чекбоксы управляют видимостью полей -->
+    <div class="section">
+        <h2>4. Чекбоксы управляют видимостью полей</h2>
+        <div class="checkbox-group">
+            <input type="checkbox" id="toggle1" checked>
+            <label for="toggle1">Показать/скрыть поле 1</label>
+            <input type="text" id="toggleField1" placeholder="Поле 1">
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="toggle2" checked>
+            <label for="toggle2">Показать/скрыть поле 2</label>
+            <input type="text" id="toggleField2" placeholder="Поле 2">
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="toggle3" checked>
+            <label for="toggle3">Показать/скрыть поле 3</label>
+            <input type="text" id="toggleField3" placeholder="Поле 3">
+        </div>
+    </div>
+
+    <script>
+        // Задача 1: Подтверждение действий
+        document.getElementById('confirmBtn').addEventListener('click', function () {
+            const userConfirmed = confirm('Вы уверены, что хотите выполнить это действие?');
+
+            if (userConfirmed) {
+                // Если выбрано "Да"
+                document.getElementById('textField1').value = 'Действие подтверждено!';
+                document.getElementById('checkbox1').checked = true;
+            } else {
+                // Если выбрано "Нет"
+                document.getElementById('form1').reset();
+            }
+        });
+
+        // Задача 2: Блокировка/разблокировка поля
+        document.getElementById('lockBtn').addEventListener('click', function () {
+            document.getElementById('lockableField').disabled = true;
+        });
+
+        document.getElementById('unlockBtn').addEventListener('click', function () {
+            document.getElementById('lockableField').disabled = false;
+        });
+
+        // Задача 3: Фокус при наведении 
+        const textFields = document.querySelectorAll('input[type="text"]');
+
+        textFields.forEach(field => {
+            // Сохраняем оригинальное значение placeholder
+            const originalPlaceholder = field.placeholder;
+
+            field.addEventListener('mouseenter', function () {
+                this.focus();
+                this.placeholder = 'ID: ' + this.id;
+            });
+
+            field.addEventListener('mouseleave', function () {
+                this.placeholder = originalPlaceholder;
+            });
+        });
+
+        // Задача 4: Чекбоксы управляют видимостью полей
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+        checkboxes.forEach(checkbox => {
+            // Находим соответствующее текстовое поле по ID
+            const fieldId = checkbox.id.replace('toggle', 'toggleField');
+            const textField = document.getElementById(fieldId);
+
+            if (textField) {
+                // Устанавливаем начальное состояние
+                textField.style.display = checkbox.checked ? 'inline-block' : 'none';
+
+                // Обработчик изменения чекбокса
+                checkbox.addEventListener('change', function () {
+                    textField.style.display = this.checked ? 'inline-block' : 'none';
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
