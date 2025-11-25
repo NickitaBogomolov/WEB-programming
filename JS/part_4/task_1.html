@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 1</title>
+</head>
+
+<body>
+    <script type="module">
+        // Переделайте пример из лекции, где использовался объект messages.
+        // Пример для пользователя должен генерироваться случайным образом 
+        // (см. задание Тренажер). Результат вычисления и ответ, введенный пользователем, передавайте в метод check, где нужно проверить верно или нет пользователь решил задачу.
+
+        const generateMathExample = () => {
+            const num1 = Math.floor(Math.random() * 10) + 1;
+            const num2 = Math.floor(Math.random() * 10) + 1;
+            return { num1, num2, answer: num1 * num2 };
+        };
+
+        const example = generateMathExample();
+
+        let messages = {
+            'error': "Вы допустили ошибку",
+            'success': "Все прошло успешно",
+            'check': function (userAnswer, correctAnswer) {
+                const answer = Number(userAnswer);
+                if (!isNaN(answer) && answer === correctAnswer) {
+                    console.log(this.success);
+                    alert(this.success);
+                } else {
+                    console.log(this.error);
+                    alert(`${this.error}. Правильный ответ: ${correctAnswer}`);
+                }
+            }
+        }
+
+        const userAnswer = prompt(`Вычислите ${example.num1} * ${example.num2}`);
+        if (userAnswer === null) {
+            alert("Вы отменили ввод");
+        } else if (userAnswer.trim() === '') {
+            alert("Вы ввели пустую строку");
+        } else {
+            messages.check(userAnswer, example.answer);
+        }
+    </script>
+</body>
+
+</html>

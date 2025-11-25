@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 5</title>
+</head>
+
+<body>
+    <script type="module">
+        // Напишите функцию, возвращающую строку с удаленным на заданной позиции символом. Строку и номер удаляемого символа запросите у пользователя и передайте в функцию. Для решения задачи используйте методы получения подстроки.
+
+        function removeChar(str, position) {
+            if (position < 0 || position >= str.length) {
+                return str;
+            }
+            return str.substring(0, position) + str.substring(position + 1);
+        }
+
+        const inputString = prompt("Введите строку:");
+        if (inputString === null) {
+            alert("Вы отменили ввод");
+        } else if (inputString.trim() === '') {
+            alert("Вы ввели пустую строку");
+        } else {
+            const positionInput = prompt(`Введите номер символа для удаления (от 0 до ${inputString.length - 1}):`);
+            if (positionInput === null) {
+                alert("Вы отменили ввод позиции");
+            } else {
+                const position = Number(positionInput);
+                if (!isNaN(position) && position >= 0 && position < inputString.length) {
+                    const result = removeChar(inputString, position);
+                    alert(`Результат: ${result}`);
+                } else {
+                    alert("Неверная позиция");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

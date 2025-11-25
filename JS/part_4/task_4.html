@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 4</title>
+</head>
+
+<body>
+    <script type="module">
+        // Напишите функцию, которая возвращает «перевернутое» число. Например, для аргумента 123 функция вернет 321. МАССИВЫ не использовать!
+
+        function reverseNumber(num) {
+            let reversed = 0;
+            let number = Math.abs(num);
+
+            while (number > 0) {
+                reversed = reversed * 10 + (number % 10);
+                number = Math.floor(number / 10);
+            }
+
+            return num < 0 ? -reversed : reversed;
+        }
+
+        const input = prompt("Введите число:");
+        if (input === null) {
+            alert("Вы отменили ввод");
+        } else if (input.trim() === '') {
+            alert("Вы ввели пустую строку");
+        } else {
+            const number = Number(input);
+            if (!isNaN(number)) {
+                const reversed = reverseNumber(number);
+                alert(`Перевернутое число: ${reversed}`);
+            } else {
+                alert("Пожалуйста, введите число");
+            }
+        }
+    </script>
+</body>
+
+</html>

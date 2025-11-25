@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 2</title>
+</head>
+
+<body>
+    <script type="module">
+        // Запросите у пользователя строку и сформируйте новую строку, состоящую из символов исходной строки, стоящих на четных позициях.
+
+        const inputString = prompt("Введите строку:");
+        if (inputString === null) {
+            alert("Вы отменили ввод");
+        } else if (inputString.trim() === '') {
+            alert("Вы ввели пустую строку");
+        } else {
+            let result = '';
+            for (let i = 0; i < inputString.length; i++) {
+                if (i % 2 === 1) { // Четные позиции (индексы 1, 3, 5...)
+                    result += inputString[i];
+                }
+            }
+            alert(`Символы на четных позициях: ${result}`);
+        }
+    </script>
+</body>
+
+</html>
