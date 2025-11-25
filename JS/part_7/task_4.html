@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 4</title>
+</head>
+
+<body>
+    <script type="module">
+        // Напишите функцию, которая параметром будет принимать милисекунды, а возвращать количество дней, часов, минут и секунд, соответствующих этим секундам, в виде следующего объекта:
+
+        function convertMilliseconds(ms) {
+            const seconds = Math.floor(ms / 1000);
+            const days = Math.floor(seconds / (24 * 60 * 60));
+            const hours = Math.floor((seconds % (24 * 60 * 60)) / (60 * 60));
+            const minutes = Math.floor((seconds % (60 * 60)) / 60);
+            const secs = seconds % 60;
+
+            return {
+                d: days,
+                h: hours,
+                m: minutes,
+                s: secs
+            };
+        }
+
+        const msInput = prompt("Введите количество миллисекунд:");
+        if (msInput === null) {
+            alert("Вы отменили ввод");
+        } else if (msInput.trim() === '') {
+            alert("Вы ввели пустую строку");
+        } else {
+            const ms = Number(msInput);
+            if (!isNaN(ms) && ms >= 0) {
+                const time = convertMilliseconds(ms);
+                alert(`${ms} миллисекунд = ${time.d} дней, ${time.h} часов, ${time.m} минут, ${time.s} секунд`);
+            } else {
+                alert("Пожалуйста, введите положительное число");
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 8</title>
+</head>
+
+<body>
+    <script type="module">
+        // Выведите на экран на какие дни недели выпадают в этом году официальные государственные праздники.
+
+        function getHolidaysWeekDays() {
+            const currentYear = new Date().getFullYear();
+            const days = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
+
+            const holidays = [
+                new Date(currentYear, 0, 1),   // Новый год
+                new Date(currentYear, 0, 7),   // Рождество
+                new Date(currentYear, 1, 23),  // День защитника Отечества
+                new Date(currentYear, 2, 8),   // Международный женский день
+                new Date(currentYear, 4, 1),   // Праздник Весны и Труда
+                new Date(currentYear, 4, 9),   // День Победы
+                new Date(currentYear, 5, 12),  // День России
+                new Date(currentYear, 10, 4)   // День народного единства
+            ];
+
+            const result = {};
+            holidays.forEach(holiday => {
+                const dayName = days[holiday.getDay()];
+                const dateStr = holiday.toLocaleDateString();
+                result[dateStr] = dayName;
+            });
+
+            return result;
+        }
+
+        const holidays = getHolidaysWeekDays();
+        let message = "Государственные праздники в этом году:\n\n";
+        for (const [date, day] of Object.entries(holidays)) {
+            message += `${date} - ${day}\n`;
+        }
+
+        alert(message);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 1</title>
+</head>
+
+<body>
+    <script type="module">
+        // Напишите функцию, которая параметром будет получать дату, а возвращать день недели словом, соответствующий этой дате.
+
+        function getDayOfWeek(date) {
+            const days = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
+            return days[date.getDay()];
+        }
+
+        const userDate = prompt("Введите дату в формате ГГГГ-ММ-ДД (например, 2024-01-15):");
+        if (userDate === null) {
+            alert("Вы отменили ввод");
+        } else if (userDate.trim() === '') {
+            alert("Вы ввели пустую строку");
+        } else {
+            const date = new Date(userDate);
+            if (isNaN(date.getTime())) {
+                alert("Неверный формат даты");
+            } else {
+                const dayOfWeek = getDayOfWeek(date);
+                alert(`Дата ${userDate} - это ${dayOfWeek}`);
+            }
+        }
+    </script>
+</body>
+
+</html>

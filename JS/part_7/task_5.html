@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 5</title>
+</head>
+
+<body>
+    <script type="module">
+        // По заданной пользователем дате рождения сообщить его возраст в годах, месяцах и днях.
+
+        function calculateAge(birthDate) {
+            const today = new Date();
+            let years = today.getFullYear() - birthDate.getFullYear();
+            let months = today.getMonth() - birthDate.getMonth();
+            let days = today.getDate() - birthDate.getDate();
+
+            if (days < 0) {
+                months--;
+                const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+                days += lastMonth.getDate();
+            }
+
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            return { years, months, days };
+        }
+
+        const birthDateInput = prompt("Введите вашу дату рождения в формате ГГГГ-ММ-ДД:");
+        if (birthDateInput === null) {
+            alert("Вы отменили ввод");
+        } else if (birthDateInput.trim() === '') {
+            alert("Вы ввели пустую строку");
+        } else {
+            const birthDate = new Date(birthDateInput);
+            if (isNaN(birthDate.getTime())) {
+                alert("Неверный формат даты");
+            } else if (birthDate > new Date()) {
+                alert("Дата рождения не может быть в будущем");
+            } else {
+                const age = calculateAge(birthDate);
+                alert(`Ваш возраст: ${age.years} лет, ${age.months} месяцев, ${age.days} дней`);
+            }
+        }
+    </script>
+</body>
+
+</html>

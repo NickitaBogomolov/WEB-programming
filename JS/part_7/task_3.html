@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 3</title>
+</head>
+
+<body>
+    <script type="module">
+        // Напишите функцию, которая вернет предыдущий, текущий и следующий дни недели словом в виде следующего объекта:
+
+        function getWeekDays() {
+            const days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+            const today = new Date();
+            const currentDay = today.getDay();
+
+            const prevDay = (currentDay - 1 + 7) % 7;
+            const nextDay = (currentDay + 1) % 7;
+
+            return {
+                next: days[nextDay],
+                curr: days[currentDay],
+                prev: days[prevDay]
+            };
+        }
+
+        const weekDays = getWeekDays();
+        console.log(weekDays);
+        alert(`Предыдущий: ${weekDays.prev}\nТекущий: ${weekDays.curr}\nСледующий: ${weekDays.next}`);
+    </script>
+</body>
+
+</html>

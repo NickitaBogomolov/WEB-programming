@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 6</title>
+</head>
+
+<body>
+    <script type="module">
+        // Заполнить массив датами все пятниц, на которые выпадает 13-е число в текущем году.
+
+        function findFridayThe13ths() {
+            const currentYear = new Date().getFullYear();
+            const friday13ths = [];
+
+            for (let month = 0; month < 12; month++) {
+                const date = new Date(currentYear, month, 13);
+                if (date.getDay() === 5) { // 5 = пятница
+                    friday13ths.push(date.toLocaleDateString());
+                }
+            }
+
+            return friday13ths;
+        }
+
+        const friday13ths = findFridayThe13ths();
+        if (friday13ths.length > 0) {
+            alert(`Пятницы 13-е в ${new Date().getFullYear()} году:\n${friday13ths.join('\n')}`);
+        } else {
+            alert(`В ${new Date().getFullYear()} году нет пятниц 13-го числа`);
+        }
+    </script>
+</body>
+
+</html>
