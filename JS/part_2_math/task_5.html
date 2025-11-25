@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 5</title>
+</head>
+
+<body>
+    <script type="module">
+        // Напишите программу-тест, проверяющую таблицу умножения. 
+        // Операнды умножения должны быть случайными числами от 2 до 10.
+        // На каждой итерации пользователю предлагается сформированный пример (2*4 или 5*9 и т.п.). Он должен ввести ответ и получить обратную связь – правильно или нет решена задача.
+        // Организуйте запрос на продолжение работы. После каждой итерации пользователь должен вводить "y" если хочет продолжить. Любой другой символ - выход.
+
+        import { validateInput } from '../validation.js';
+
+        let continueTest = true;
+
+        while (continueTest) {
+            // Рандом для извращенцев (ведь рандмо с указанным интервалом в базовой библиотеке не нужен, поэтом вот вам от 0 до 1 не включительно) Господи прости...
+            const num1 = Math.floor(Math.random() * 9) + 2;
+            const num2 = Math.floor(Math.random() * 9) + 2;
+            const correctAnswer = num1 * num2;
+
+            const userAnswer = validateInput(prompt(`Решите пример: ${num1} * ${num2} = ?`));
+
+            if (userAnswer !== null) {
+                if (userAnswer === correctAnswer) {
+                    alert("Правильно!");
+                } else {
+                    alert(`Неправильно! Правильный ответ: ${correctAnswer}`);
+                }
+            }
+
+            const continueInput = prompt("Продолжить тест? (y - да, любой другой символ - нет)");
+            continueTest = (continueInput === 'y' || continueInput === 'Y');
+        }
+
+        alert("Тест завершен!");
+    </script>
+</body>
+
+</html>
