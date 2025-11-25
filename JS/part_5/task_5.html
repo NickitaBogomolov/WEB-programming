@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 5</title>
+</head>
+
+<body>
+    <script type="module">
+        // Дан массив со строками. Оставьте в этом массиве только те строки, которые начинаются на http://. (filter,startsWith)
+
+        const urls = [
+            "http://example.com",
+            "https://google.com",
+            "http://test.org",
+            "ftp://server.com",
+            "http://mysite.ru",
+            "file://local"
+        ];
+
+        const httpUrls = urls.filter(url => url.startsWith('http://'));
+
+        console.log("Исходный массив:", urls);
+        console.log("Только http:// URLs:", httpUrls);
+
+        alert(`Исходный массив:\n${urls.join('\n')}\n\nТолько http:// URLs:\n${httpUrls.join('\n')}`);
+    </script>
+</body>
+
+</html>

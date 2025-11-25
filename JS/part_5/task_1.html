@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 1</title>
+</head>
+
+<body>
+    <script type="module">
+        // Дан массив с числами. Найдите сумму тех элементов этого массива, которые больше нуля и меньше десяти. (filter,reduce)
+
+        const numbers = [5, -3, 8, 15, 2, -7, 9, 12, 1, -1];
+
+        const sum = numbers
+            .filter(num => num > 0 && num < 10)
+            .reduce((acc, num) => acc + num, 0);
+
+        console.log("Массив:", numbers);
+        console.log("Сумма элементов от 0 до 10:", sum);
+        alert(`Массив: [${numbers}]\nСумма элементов от 0 до 10: ${sum}`);
+    </script>
+</body>
+
+</html>

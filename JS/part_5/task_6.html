@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 6</title>
+</head>
+
+<body>
+    <script type="module">
+        // Дан объект с ключами и значениями. Запишите в первый массив ключи объекта, а во второй - значения.
+        // Найдите сумму элементов этой структуры (reduce).
+
+        let data = [
+            {
+                1: 11,
+                2: 12,
+                3: 13,
+            },
+            {
+                1: 21,
+                2: 22,
+                3: 23,
+            },
+            {
+                1: 24,
+                2: 25,
+                3: 26,
+            },
+        ];
+
+        // Получаем ключи и значения
+        const keys = [];
+        const values = [];
+
+        data.forEach(obj => {
+            keys.push(...Object.keys(obj));
+            values.push(...Object.values(obj));
+        });
+
+        // Находим сумму всех значений
+        const totalSum = values.reduce((acc, value) => acc + value, 0);
+
+        console.log("Ключи:", keys);
+        console.log("Значения:", values);
+        console.log("Сумма всех значений:", totalSum);
+
+        alert(`Ключи: [${keys}]\nЗначения: [${values}]\nСумма всех значений: ${totalSum}`);
+    </script>
+</body>
+
+</html>

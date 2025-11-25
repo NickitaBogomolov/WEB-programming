@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 3</title>
+</head>
+
+<body>
+    <script type="module">
+        // Написать функцию, которая принимает массив любых целых чисел, и возвращает новый массив из элементов переданного массива, кратных пяти. ([1,2,5,12,15,21] вернет [5,15]) (filter)
+
+        function multiplesOfFive(numbers) {
+            return numbers.filter(num => num % 5 === 0);
+        }
+
+        const testArray = [1, 2, 5, 12, 15, 21, 25, 30, 33];
+        const result = multiplesOfFive(testArray);
+
+        console.log("Исходный массив:", testArray);
+        console.log("Кратные пяти:", result);
+
+        alert(`Исходный массив: [${testArray}]\nКратные пяти: [${result}]`);
+    </script>
+</body>
+
+</html>
