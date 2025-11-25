@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 2</title>
+</head>
+
+<body>
+    <script type="module">
+        // Посчитайте количество букв и количество цифр в строке.
+
+        function countLettersAndDigits(str) {
+            const letterCount = (str.match(/[a-zA-Zа-яА-Я]/g) || []).length;
+            const digitCount = (str.match(/\d/g) || []).length;
+            return { letters: letterCount, digits: digitCount };
+        }
+
+        const testString = prompt("Введите строку для подсчета букв и цифр:");
+        if (testString === null) {
+            alert("Вы отменили ввод");
+        } else {
+            const counts = countLettersAndDigits(testString);
+            alert(`В строке "${testString}":\nБукв: ${counts.letters}\nЦифр: ${counts.digits}`);
+        }
+    </script>
+</body>
+
+</html>

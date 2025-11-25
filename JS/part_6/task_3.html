@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 3</title>
+</head>
+
+<body>
+    <script type="module">
+        // Постройте регулярное выражение, проверяющее, что строка состоит только из букв и цифр.
+
+        function isAlphanumeric(str) {
+            const regex = /^[a-zA-Z0-9]+$/;
+            return regex.test(str);
+        }
+
+        const testString = prompt("Введите строку (только буквы и цифры):");
+        if (testString === null) {
+            alert("Вы отменили ввод");
+        } else {
+            const isValid = isAlphanumeric(testString);
+            alert(`Строка "${testString}" ${isValid ? 'состоит только из букв и цифр' : 'содержит другие символы'}`);
+        }
+    </script>
+</body>
+
+</html>

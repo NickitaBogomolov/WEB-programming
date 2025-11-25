@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 4</title>
+</head>
+
+<body>
+    <script type="module">
+        // Постройте регулярное выражение, проверяющее корректность названия переменной JS, которое ввел пользователь. Проверку ключевых слов не учитывать.
+
+        function isValidVariableName(str) {
+            const regex = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/;
+            return regex.test(str);
+        }
+
+        const variableName = prompt("Введите название переменной:");
+        if (variableName === null) {
+            alert("Вы отменили ввод");
+        } else if (variableName.trim() === '') {
+            alert("Вы ввели пустую строку");
+        } else {
+            const isValid = isValidVariableName(variableName);
+            alert(`"${variableName}" ${isValid ? 'корректное' : 'некорректное'} имя переменной JavaScript`);
+        }
+    </script>
+</body>
+
+</html>

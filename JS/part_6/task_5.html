@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 5</title>
+</head>
+
+<body>
+    <script type="module">
+        // Постройте регулярное выражение, которое проверяет, является ли строка URL адресом.
+
+        function isValidUrl(str) {
+            const regex = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(:\d+)?(\/[^\s]*)?$/;
+            return regex.test(str);
+        }
+
+        const testUrl = prompt("Введите URL адрес:");
+        if (testUrl === null) {
+            alert("Вы отменили ввод");
+        } else if (testUrl.trim() === '') {
+            alert("Вы ввели пустую строку");
+        } else {
+            const isValid = isValidUrl(testUrl);
+            alert(`"${testUrl}" ${isValid ? 'корректный' : 'некорректный'} URL адрес`);
+        }
+    </script>
+</body>
+
+</html>

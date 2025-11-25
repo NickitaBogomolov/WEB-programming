@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 1</title>
+</head>
+
+<body>
+    <script type="module">
+        // Постройте регулярное выражение, проверяющее, что строка не содержит спецсимволов и цифр и ее длина не менее 10 символов.
+
+        function validateString(str) {
+            const regex = /^[a-zA-Zа-яА-Я]{10,}$/;
+            return regex.test(str);
+        }
+
+        const testString = prompt("Введите строку (только буквы, не менее 10 символов):");
+        if (testString === null) {
+            alert("Вы отменили ввод");
+        } else {
+            const isValid = validateString(testString);
+            alert(`Строка "${testString}" ${isValid ? 'соответствует' : 'не соответствует'} условиям`);
+        }
+    </script>
+</body>
+
+</html>
