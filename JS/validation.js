@@ -17,6 +17,5 @@ export function validateInput(userInput) {
         return null;
     }
 
-    alert(`Вы ввели число: ${trimmedInput}`);
     return Number(trimmedInput);
 }
