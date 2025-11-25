@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 3 - Навигация</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Задание 3</h1>
+
+        <div class="task-description">
+            <h2>Сделайте страницу, на которой присутствует список (SELECT SINGLE) с названиями нескольких страниц и
+                кнопка.</h2>
+            <p>Человек может выбрать название страницы из списка и нажать кнопку. Должна загрузиться выбранная страница.
+                Если в списке ничего не было выбрано, выдайте сообщение об ошибке (alert).</p>
+        </div>
+
+        <div class="navigation-group">
+            <select id="pageSelect">
+                <option value="">-- Выберите страницу --</option>
+                <option value="index.html">Главная страница</option>
+                <option value="task_1.html">Случайная картинка</option>
+                <option value="task_2.html">Високосный год</option>
+                <option value="task_3.html">Навигация (эта страница)</option>
+            </select>
+            <button class="btn" onclick="navigateToPage()">Перейти</button>
+        </div>
+
+        <a href="index.html" class="back-link">← Вернуться на главную</a>
+    </div>
+
+    <script>
+        function navigateToPage() {
+            const selectElement = document.getElementById('pageSelect');
+            const selectedValue = selectElement.value;
+
+            if (!selectedValue) {
+                alert('Ошибка: Пожалуйста, выберите страницу из списка!');
+                return;
+            }
+
+            window.location.href = selectedValue;
+        }
+
+        // Обработка двойного клика по select
+        document.getElementById('pageSelect').addEventListener('dblclick', function () {
+            navigateToPage();
+        });
+    </script>
+</body>
+
+</html>

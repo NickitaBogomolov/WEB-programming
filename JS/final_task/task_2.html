@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 2 - Високосный год</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Задание 2</h1>
+
+        <div class="task-description">
+            <h2>Написать функцию leap(), которая возвращает true, если год високосный и false - если нет.</h2>
+            <p>Введите год в поле ниже и нажмите "Проверить", чтобы узнать, является ли он високосным.</p>
+        </div>
+
+        <div class="input-group">
+            <input type="number" id="yearInput" placeholder="Введите год" min="1" max="9999">
+            <button class="btn" onclick="checkLeapYear()">Проверить</button>
+        </div>
+
+        <div class="result" id="result">
+            Результат появится здесь
+        </div>
+
+        <a href="index.html" class="back-link">← Вернуться на главную</a>
+    </div>
+
+    <script>
+        function leap(year) {
+            return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+        }
+
+        function checkLeapYear() {
+            const yearInput = document.getElementById('yearInput');
+            const resultDiv = document.getElementById('result');
+            const year = parseInt(yearInput.value);
+
+            if (isNaN(year) || year < 1 || year > 9999) {
+                resultDiv.innerHTML = '<span style="color: #ff6b6b;">Пожалуйста, введите корректный год (1-9999)</span>';
+                return;
+            }
+
+            const isLeap = leap(year);
+
+            if (isLeap) {
+                resultDiv.innerHTML = `<span style="color: #51cf66;">Год ${year} - ВИСОКОСНЫЙ ✓</span>`;
+            } else {
+                resultDiv.innerHTML = `<span style="color: #ffa94d;">Год ${year} - НЕ високосный ✗</span>`;
+            }
+        }
+
+        // Обработка нажатия Enter
+        document.getElementById('yearInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                checkLeapYear();
+            }
+        });
+    </script>
+</body>
+
+</html>

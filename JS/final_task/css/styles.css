@@ -1,0 +1,189 @@
+/* Общие стили для всех страниц */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #34495e;
+    text-align: center;
+}
+
+.task-description {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border-left: 5px solid #667eea;
+}
+
+.task-description h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.task-description p {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Стили для форм и инпутов */
+.input-group {
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+input,
+select {
+    padding: 12px 20px;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    font-size: 1.1em;
+    width: 250px;
+    text-align: center;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Стили для кнопок */
+.btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+}
+
+.btn-secondary:hover {
+    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
+}
+
+/* Стили для результатов */
+.result {
+    margin: 20px 0;
+    padding: 25px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    font-size: 1.2em;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #dee2e6;
+}
+
+.result.success {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.result.error {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+/* Стили для изображений */
+.image-container {
+    margin: 30px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+}
+
+.random-image {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для списков */
+.task-list {
+    list-style: none;
+    margin: 30px 0;
+}
+
+.task-item {
+    margin: 20px 0;
+}
+
+.task-link {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    padding: 18px 35px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    font-size: 1.2em;
+    font-weight: 600;
+    width: 100%;
+    max-width: 400px;
+}
+
+.task-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}

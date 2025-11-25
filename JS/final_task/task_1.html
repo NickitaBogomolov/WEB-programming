@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 1 - Случайная картинка</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Задание 1</h1>
+
+        <div class="task-description">
+            <h2>Создать HTML-страницу, на которой была бы случайная картинка из некоторого набора. Возьмите любые
+                картинки.</h2>
+            <p>На этой странице отображается случайная картинка из предопределенного набора. При нажатии кнопки "Сменить
+                картинку" загружается новая случайная картинка.</p>
+        </div>
+
+        <div class="image-container">
+            <img id="randomImage" class="random-image" alt="Случайная картинка">
+        </div>
+
+        <button class="btn" onclick="changeImage()">Сменить картинку</button>
+
+        <a href="index.html" class="back-link">← Вернуться на главную</a>
+    </div>
+
+    <script>
+        const images = [
+            './img/pic_1.jpg',
+            './img/pic_2.jpg',
+            './img/pic_3.jpg',
+        ];
+        const imgElement = document.getElementById('randomImage');
+        function getRandomImage() {
+            const randomIndex = Math.floor(Math.random() * images.length);
+            return images[randomIndex];
+        }
+
+        function changeImage() {
+            imgElement.src = getRandomImage();
+        }
+
+        // Загружаем случайную картинку при загрузке страницы
+        window.onload = function () {
+            imgElement.src = getRandomImage();
+        };
+    </script>
+</body>
+
+</html>
