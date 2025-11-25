@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 4</title>
+</head>
+
+<body>
+    <script type="module">
+        // Создай функциональные выражения (function expression), которые:
+        // принимает два параметра, в которых ожидаются имя и возраст пользователя, возвращает сообщение в консоль, если пользователю меньше 18 лет, то: `${name}, вы еще очень молоды!`, если от 18 до 50 лет включительно, то: `${name}, добро пожаловать в личный кабинет!`, если  старше 50 лет: `${name}, моё почтение!`, в противном случае, если невозможно определить возраст по полученному значению, вернуть сообщение: "Укажите корректные данные!" .
+        // принимает один параметр, проверяет и выводит в консоль его тип данных.
+
+        const getUserMessage = function (name, age) {
+            if (typeof age !== 'number' || age < 0 || !isFinite(age)) {
+                return "Укажите корректные данные!";
+            }
+
+            if (age < 18) {
+                return `${name}, вы еще очень молоды!`;
+            } else if (age >= 18 && age <= 50) {
+                return `${name}, добро пожаловать в личный кабинет!`;
+            } else {
+                return `${name}, моё почтение!`;
+            }
+        };
+
+        const checkDataType = function (value) {
+            const type = typeof value;
+            console.log(`Тип данных: ${type}, значение: ${value}`);
+            return type;
+        };
+
+        const userName = prompt("Введите ваше имя:");
+        const userAge = Number(prompt("Введите ваш возраст:"));
+
+        if (!isNaN(userAge)) {
+            const message = getUserMessage(userName, userAge);
+            alert(message);
+
+            checkDataType(userName);
+            checkDataType(userAge);
+        } else {
+            alert("Пожалуйста, введите корректный возраст");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 3</title>
+</head>
+
+<body>
+    <script type="module">
+        // Написать функции поиска минимума и максимума из трех чисел. Числа передаются в функции как параметры, возвращается соответственно минимальное и максимальное значения.
+
+        function findMin(a, b, c) {
+            return Math.min(a, b, c);
+        }
+
+        function findMax(a, b, c) {
+            return Math.max(a, b, c);
+        }
+
+        const num1 = Number(prompt("Введите первое число:"));
+        const num2 = Number(prompt("Введите второе число:"));
+        const num3 = Number(prompt("Введите третье число:"));
+
+        if (!isNaN(num1) && !isNaN(num2) && !isNaN(num3)) {
+            const min = findMin(num1, num2, num3);
+            const max = findMax(num1, num2, num3);
+            alert(`Минимальное число: ${min}\nМаксимальное число: ${max}`);
+        } else {
+            alert("Пожалуйста, введите корректные числа");
+        }
+    </script>
+</body>
+
+</html>
