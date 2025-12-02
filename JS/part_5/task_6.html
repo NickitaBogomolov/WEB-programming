@@ -33,7 +33,7 @@
         const values = [];
 
         data.forEach(obj => {
-            keys.push(...Object.keys(obj));
+            keys.push(...Object.keys(obj)); //... - распаковка списка
             values.push(...Object.values(obj));
         });
 

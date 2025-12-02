@@ -7,7 +7,10 @@
 
 <body>
     <script type="module">
-        // Напишите функцию, которая возвращает «перевернутое» число. Например, для аргумента 123 функция вернет 321. МАССИВЫ не использовать!
+        // Напишите функцию, которая возвращает «перевернутое» число.
+        //  Например, для аргумента 123 функция вернет 321. МАССИВЫ не использовать!
+
+        import { validateInput } from '../validation.js';
 
         function reverseNumber(num) {
             let reversed = 0;
@@ -22,18 +25,10 @@
         }
 
         const input = prompt("Введите число:");
-        if (input === null) {
-            alert("Вы отменили ввод");
-        } else if (input.trim() === '') {
-            alert("Вы ввели пустую строку");
-        } else {
+        if (validateInput(input) !== null) {
             const number = Number(input);
-            if (!isNaN(number)) {
-                const reversed = reverseNumber(number);
-                alert(`Перевернутое число: ${reversed}`);
-            } else {
-                alert("Пожалуйста, введите число");
-            }
+            const reversed = reverseNumber(number);
+            alert(`Перевернутое число: ${reversed}`);
         }
     </script>
 </body>

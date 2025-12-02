@@ -7,30 +7,20 @@
 
 <body>
     <script type="module">
-        // Запросите у пользователя строку, состоящую только из цифр. Посчитайте произведение этих цифр.
+        // Запросите у пользователя строку, состоящую только из цифр.
+        //  Посчитайте произведение этих цифр.
+
+        import { validateInput } from '../validation.js';
 
         const inputString = prompt("Введите строку из цифр:");
-        if (inputString === null) {
-            alert("Вы отменили ввод");
-        } else if (inputString.trim() === '') {
-            alert("Вы ввели пустую строку");
-        } else {
+
+        if (validateInput(inputString) !== null) {
             let product = 1;
-            let hasDigits = false;
 
             for (let i = 0; i < inputString.length; i++) {
-                const char = inputString[i];
-                if (char >= '0' && char <= '9') {
-                    product *= Number(char);
-                    hasDigits = true;
-                }
+                product *= Number(inputString[i]);
             }
-
-            if (hasDigits) {
-                alert(`Произведение цифр: ${product}`);
-            } else {
-                alert("В строке нет цифр");
-            }
+            alert(`Произведение цифр: ${product}`);
         }
     </script>
 </body>
