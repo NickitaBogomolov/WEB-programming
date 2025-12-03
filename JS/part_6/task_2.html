@@ -10,7 +10,7 @@
         // Посчитайте количество букв и количество цифр в строке.
 
         function countLettersAndDigits(str) {
-            const letterCount = (str.match(/[a-zA-Zа-яА-Я]/g) || []).length;
+            const letterCount = (str.match(/[a-zA-Zа-яА-Я]/g) || []).length; // g - найти все совпадения, не только первое. || [] защита от null
             const digitCount = (str.match(/\d/g) || []).length;
             return { letters: letterCount, digits: digitCount };
         }
