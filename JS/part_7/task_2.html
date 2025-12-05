@@ -13,7 +13,7 @@
             const today = new Date();
             const nextYear = today.getFullYear() + 1;
             const newYear = new Date(nextYear, 0, 1);
-            const diffTime = newYear - today;
+            const diffTime = newYear - today; // Время в миллисекундах почему-то (гениальность JS)
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
             return diffDays;
         }
