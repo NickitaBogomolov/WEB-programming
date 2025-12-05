@@ -17,7 +17,7 @@
 
             if (days < 0) {
                 months--;
-                const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+                const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0); // 0 дает последний день предыдущего месяца
                 days += lastMonth.getDate();
             }
 
