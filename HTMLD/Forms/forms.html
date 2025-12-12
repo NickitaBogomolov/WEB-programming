@@ -5,23 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forms</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
-    <!-- Задача 1: Подтверждение действий -->
     <div class="section">
         <h2>1. Подтверждение действий</h2>
         <form id="form1">
             <input type="text" id="textField1" placeholder="Текстовое поле">
-            <br>
-            <input type="checkbox" id="checkbox1"> Чекбокс
+            <input type="checkbox" id="checkbox1">
             <br><br>
             <button type="button" id="confirmBtn">Выполнить действие</button>
         </form>
     </div>
 
-    <!-- Задача 2: Блокировка/разблокировка поля -->
     <div class="section">
         <h2>2. Блокировка/разблокировка поля</h2>
         <input type="text" id="lockableField" placeholder="Это поле можно блокировать">
@@ -30,7 +27,6 @@
         <button id="unlockBtn">Разблокировать поле</button>
     </div>
 
-    <!-- Задача 3: Фокус при наведении -->
     <div class="section">
         <h2>3. Фокус при наведении (показывает ID поля)</h2>
         <input type="text" id="field1" placeholder="Поле 1">
@@ -39,7 +35,6 @@
         <input type="text" id="field4" placeholder="Поле 4">
     </div>
 
-    <!-- Задача 4: Чекбоксы управляют видимостью полей -->
     <div class="section">
         <h2>4. Чекбоксы управляют видимостью полей</h2>
         <div class="checkbox-group">
@@ -101,7 +96,7 @@
         });
 
         // Задача 4: Чекбоксы управляют видимостью полей
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const checkboxes = document.querySelectorAll('.checkbox-group input[type="checkbox"]');
 
         checkboxes.forEach(checkbox => {
             // Находим соответствующее текстовое поле по ID

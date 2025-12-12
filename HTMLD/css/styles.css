@@ -27,13 +27,13 @@
      cursor: pointer;
  }
 
- button:hover {
-     background-color: #0056b3;
- }
-
  input[type="text"],
  input[type="checkbox"] {
      margin: 5px;
+ }
+
+ button:hover {
+     background-color: #0056b3;
  }
 
  .checkbox-group {
